@@ -1,18 +1,14 @@
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
+import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JSlider;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+
+
+import static javax.swing.UIManager.getBorder;
 
 public class CaesarCipher extends JFrame {
     private JTextField txtKey;
@@ -53,12 +49,13 @@ public class CaesarCipher extends JFrame {
         return output;
     }
     public CaesarCipher() {
-        getContentPane().setBackground(new Color(135, 206, 235));
+        getContentPane().setBackground(new Color(248, 248, 255));
         setTitle("Secret Messenger");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         txtIn = new JTextArea();
+        txtIn.setBorder(getBorder("ScrollPane.border"));
         txtIn.setWrapStyleWord(true);
         txtIn.setLineWrap(true);
         txtIn.setFont(new Font("Lucida Console", Font.PLAIN, 18));
@@ -66,6 +63,7 @@ public class CaesarCipher extends JFrame {
         getContentPane().add(txtIn);
 
         txtOut = new JTextArea();
+        txtOut.setBorder(getBorder("ScrollPane.border"));
         txtOut.setWrapStyleWord(true);
         txtOut.setLineWrap(true);
         txtOut.setFont(new Font("Lucida Console", Font.PLAIN, 18));
@@ -85,7 +83,8 @@ public class CaesarCipher extends JFrame {
         getContentPane().add(lblKey);
 
         JButton btnAction = new JButton("Encode/Decode");
-        btnAction.setBackground(new Color(135, 206, 235));
+        btnAction.setBorder(getBorder("Button.border"));
+        btnAction.setBackground(new Color(176, 196, 222));
         btnAction.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 try {
@@ -114,14 +113,14 @@ public class CaesarCipher extends JFrame {
                 txtOut.setText( output );
             }
         });
-        slider.setValue(3);
+        slider.setValue(0);
         slider.setPaintTicks(true);
         slider.setMajorTickSpacing(13);
         slider.setMinorTickSpacing(1);
         slider.setMinimum(-26);
         slider.setMaximum(26);
         slider.setPaintLabels(true);
-        slider.setBackground(new Color(135, 206, 235));
+        slider.setBackground(new Color(248, 248, 255));
         slider.setBounds(10, 162, 200, 45);
         getContentPane().add(slider);
     }
