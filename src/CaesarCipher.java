@@ -1,14 +1,5 @@
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
-
-
-import static javax.swing.UIManager.getBorder;
+import java.awt.*;
 
 public class CaesarCipher extends JFrame {
     private JTextField txtKey;
@@ -55,7 +46,9 @@ public class CaesarCipher extends JFrame {
         getContentPane().setLayout(null);
 
         txtIn = new JTextArea();
-        txtIn.setBorder(getBorder("ScrollPane.border"));
+        txtIn.setCaretColor(new Color(0, 0, 0));
+        txtIn.setBounds(new Rectangle(1, 1, 1, 1));
+        txtIn.setBorder(UIManager.getBorder("ScrollPane.border"));
         txtIn.setWrapStyleWord(true);
         txtIn.setLineWrap(true);
         txtIn.setFont(new Font("Lucida Console", Font.PLAIN, 18));
@@ -63,7 +56,7 @@ public class CaesarCipher extends JFrame {
         getContentPane().add(txtIn);
 
         txtOut = new JTextArea();
-        txtOut.setBorder(getBorder("ScrollPane.border"));
+        txtOut.setBorder(UIManager.getBorder("ScrollPane.border"));
         txtOut.setWrapStyleWord(true);
         txtOut.setLineWrap(true);
         txtOut.setFont(new Font("Lucida Console", Font.PLAIN, 18));
@@ -83,35 +76,31 @@ public class CaesarCipher extends JFrame {
         getContentPane().add(lblKey);
 
         JButton btnAction = new JButton("Encode/Decode");
-        btnAction.setBorder(getBorder("Button.border"));
+        btnAction.setBorder(UIManager.getBorder("Button.border"));
         btnAction.setBackground(new Color(176, 196, 222));
-        btnAction.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                try {
-                    String message = txtIn.getText();
-                    int key = Integer.parseInt( txtKey.getText() );
-                    String output = encode( message, key );
-                    txtOut.setText( output );
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,
-                            "Please enter a whole number value for the encryption key.");
-                    txtKey.requestFocus();
-                    txtKey.selectAll();
-                }
+        btnAction.addActionListener(arg0 -> {
+            try {
+                String message = txtIn.getText();
+                int key = Integer.parseInt( txtKey.getText() );
+                String output = encode( message, key );
+                txtOut.setText( output );
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,
+                        "Please enter a whole number value for the encryption key.");
+                txtKey.requestFocus();
+                txtKey.selectAll();
             }
         });
         btnAction.setBounds(312, 172, 144, 23);
         getContentPane().add(btnAction);
 
         slider = new JSlider();
-        slider.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent arg0) {
-                txtKey.setText( "" + slider.getValue() );
-                String message = txtIn.getText();
-                int key = slider.getValue();
-                String output = encode( message, key );
-                txtOut.setText( output );
-            }
+        slider.addChangeListener(arg0 -> {
+            txtKey.setText( "" + slider.getValue() );
+            String message = txtIn.getText();
+            int key = slider.getValue();
+            String output = encode( message, key );
+            txtOut.setText( output );
         });
         slider.setValue(0);
         slider.setPaintTicks(true);

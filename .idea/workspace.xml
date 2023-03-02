@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dcfab1c-e01d-442f-b735-960c4e4a52c1" name="Changes" comment="v1.0">
+    <list default="true" id="5dcfab1c-e01d-442f-b735-960c4e4a52c1" name="Changes" comment="v1.0&#10;changes some UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CaesarCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CaesarCipher.java" afterDir="false" />
     </list>
@@ -78,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677624811237</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="v1.0&#10;changes some UI">
+      <created>1677795213194</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677795213194</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value=" c" />
     <MESSAGE value="v1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.0" />
+    <MESSAGE value="v1.0&#10;changes some UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.0&#10;changes some UI" />
   </component>
 </project>
