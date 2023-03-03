@@ -8,6 +8,7 @@ public class CaesarCipher extends JFrame {
     private JTextArea txtIn;
     private JTextArea txtOut;
     private JSlider slider;
+    private JButton btnMoveUp;
     public String encode( String message, int keyVal ){
         String output = "";
         char key = (char) keyVal;
@@ -114,6 +115,15 @@ public class CaesarCipher extends JFrame {
         slider.setBackground(new Color(248, 248, 255));
         slider.setBounds(10, 162, 200, 45);
         getContentPane().add(slider);
+
+        btnMoveUp = new JButton("Move UP ⮝");
+        btnMoveUp.addActionListener(e -> {
+            String temp = txtIn.getText();
+            txtIn.setText(txtOut.getText());
+            slider.setValue(-slider.getValue());
+        });
+        btnMoveUp.setBounds(460, 168, 105, 28);
+        getContentPane().add(btnMoveUp);
     }
 
     public static void main(String[] args) {
