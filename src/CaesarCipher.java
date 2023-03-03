@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class CaesarCipher extends JFrame {
@@ -48,7 +50,7 @@ public class CaesarCipher extends JFrame {
         txtIn = new JTextArea();
         txtIn.setCaretColor(new Color(0, 0, 0));
         txtIn.setBounds(new Rectangle(1, 1, 1, 1));
-        txtIn.setBorder(UIManager.getBorder("ScrollPane.border"));
+        txtIn.setBorder(new LineBorder(new Color(169, 169, 169), 1, true));
         txtIn.setWrapStyleWord(true);
         txtIn.setLineWrap(true);
         txtIn.setFont(new Font("Lucida Console", Font.PLAIN, 18));
@@ -56,7 +58,7 @@ public class CaesarCipher extends JFrame {
         getContentPane().add(txtIn);
 
         txtOut = new JTextArea();
-        txtOut.setBorder(UIManager.getBorder("ScrollPane.border"));
+        txtOut.setBorder(new LineBorder(new Color(169, 169, 169), 1, true));
         txtOut.setWrapStyleWord(true);
         txtOut.setLineWrap(true);
         txtOut.setFont(new Font("Lucida Console", Font.PLAIN, 18));
@@ -75,9 +77,9 @@ public class CaesarCipher extends JFrame {
         lblKey.setBounds(202, 176, 46, 14);
         getContentPane().add(lblKey);
 
-        JButton btnAction = new JButton("Encode/Decode");
-        btnAction.setBorder(UIManager.getBorder("Button.border"));
-        btnAction.setBackground(new Color(176, 196, 222));
+        JButton btnAction = new JButton("Send");
+        btnAction.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+        btnAction.setBackground(new Color(255, 255, 255));
         btnAction.addActionListener(arg0 -> {
             try {
                 String message = txtIn.getText();
@@ -91,7 +93,7 @@ public class CaesarCipher extends JFrame {
                 txtKey.selectAll();
             }
         });
-        btnAction.setBounds(312, 172, 144, 23);
+        btnAction.setBounds(312, 168, 144, 29);
         getContentPane().add(btnAction);
 
         slider = new JSlider();
